@@ -144,7 +144,7 @@ const App = () => {
    return (
       <>
          <section className="section-center">
-            {alert.show && <Alert {...alert} removeAlert={() => showAlert} list={list} />}
+            {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
 
             <h4>Todo List</h4>
 
