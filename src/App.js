@@ -3,16 +3,14 @@ import TodoItem from './TodoItem';
 import Alert from './Alert'
 import './index.css';
 import uuid from 'uuid'
-import {
-   CSSTransition,
-   TransitionGroup,
-} from 'react-transition-group';
 
 const getLocalStorage = (keyname = '') => {
    switch (keyname) {
       case 'todolist':
          let todoData = localStorage.getItem(keyname)
          return (todoData ? JSON.parse(todoData) : [])
+      default:
+         return [];
    }
 }
 
@@ -146,7 +144,7 @@ const App = () => {
    return (
       <>
          <section className="section-center">
-            {alert.show && <Alert {...alert} removeAlert={showAlert} list={list} />}
+            {alert.show && <Alert {...alert} removeAlert={() => showAlert} list={list} />}
 
             <h4>Todo List</h4>
 
